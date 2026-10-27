@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hide Password</title>
+</head>
+<body>
+    <h2>Password</h2>
+
+    Password:
+    <input type="password" id="password">
+
+    <button id="b1">Show Password</button>
+
+    <script>
+        const password = document.getElementById("password");
+        const b1 = document.getElementById("b1");
+
+        b1.addEventListener("click", () => {
+            if (password.type === "password") {
+                password.type = "text";
+                b1.textContent = "Hide Password";
+            }
+            else {
+                password.type = "password";
+                b1.textContent = "Show Password";
+            }
+        });
+    </script>
+</body>
+</html>

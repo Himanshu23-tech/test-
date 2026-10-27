@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Form</title>
+</head>
+<body>
+    <h2>Product Form</h2>
+
+    Product Name:
+    <input type="text" id="name"><br><br>
+
+    Price:
+    <input type="number" id="price"><br><br>
+
+    Quantity:
+    <input type="number" id="quantity"><br><br>
+
+    <button id="b1">Submit</button>
+
+    <script>
+        const b1 = document.getElementById("b1");
+
+        b1.addEventListener("click", () => {
+            const name = document.getElementById("name").value
+            const price = document.getElementById("price").value
+            const quantity = document.getElementById("quantity").value
+
+            if (name.trim() === "") {
+                alert("Product name should not be empty");
+            }
+            else if (price <= 0) {
+                alert("Price should be a positive number");
+            }
+            else if (quantity <= 0) {
+                alert("Enter a valid quantity");
+            }
+            else {
+                const product = {
+                    name,
+                    price,
+                    quantity
+                }
+
+                localStorage.setItem("product", JSON.stringify(product));
+
+                alert("Product saved successfully");
+            }
+        });
+    </script>
+</body>
+</html>
